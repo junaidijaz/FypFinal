@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="name_text">Name :</string>
+    <string name="price_text">Price :</string>
+    <string name="quantity_text">Quantity :</string>
+    <string name="order_status">Order Status :</string>
+    <string name="feedback_of_product">Feedback of Product</string>
+    <string name="submit">Submit</string>
+    <string name="address">Address:</string>
+    <string name="total_bill">Total Bill:</string>
+    <string name="sub_total">Sub Total</string>
+</resources>
