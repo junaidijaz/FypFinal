@@ -1,6 +1,8 @@
 package com.example.Saad.MyFYPProject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -31,6 +33,7 @@ public class OrderActivity extends AppCompatActivity {
     String OrderDetails;
     ArrayList<Orders> orderDetailsList;
     ListView listView;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +89,14 @@ public class OrderActivity extends AppCompatActivity {
                     OrderDetailsCustomAdapter orderDetailsCustomAdapter = new OrderDetailsCustomAdapter(OrderActivity.this, R.layout.order_layout, orderDetailsList);
                     listView.setAdapter(orderDetailsCustomAdapter);
                 } else {
-                    new MainActivity().logoutUser();
+                    preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("token", "");
+                    editor.apply();
+                    Intent _intent = new Intent(OrderActivity.this, LoginActivity.class);
+                    finish();
+                    Toast.makeText(getApplicationContext(), "Token Expired Please Login Again...", Toast.LENGTH_SHORT).show();
+                    startActivity(_intent);
                 }
             }
 

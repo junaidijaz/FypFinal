@@ -105,7 +105,7 @@ public class ViewNeededItemsActivity extends AppCompatActivity {
 
 //        if (CheckInternet()) {
 //
-////            ProductId = ItemsList.get(position).getId();
+////            ProductId = itemsList.get(position).getId();
 //            VoteProductClass voteProductClass = new VoteProductClass(this);
 //            voteProductClass.execute((Void) null);
 //        } else {
@@ -227,7 +227,7 @@ public class ViewNeededItemsActivity extends AppCompatActivity {
                     for (int i = 0; i < JO.length(); i++) {
                         object = (JSONObject) JO.get(i);
 
-//                        ItemsList.add(new ItemNeedClass(object.optString("id"), object.optString("name"),
+//                        itemsList.add(new ItemNeedClass(object.optString("id"), object.optString("name"),
 //                                object.optString("votes"), object.optString("description"), imagePath + object.optString("image")
 //                        ));
                     }//end of for loop

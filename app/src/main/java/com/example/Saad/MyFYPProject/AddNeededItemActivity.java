@@ -112,9 +112,16 @@ public class AddNeededItemActivity extends AppCompatActivity implements View.OnC
             public void onResponse(Call<UniversalRes> call, Response<UniversalRes> response) {
                 if (response.body().isResult()) {
                     Toast.makeText(AddNeededItemActivity.this, "Item added to voting list", Toast.LENGTH_SHORT).show();
-                    progressDialog.show();
+                    progressDialog.hide();
                 } else {
-                    new MainActivity().logoutUser();
+                    preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("token", "");
+                    editor.apply();
+                    Intent _intent = new Intent(AddNeededItemActivity.this, LoginActivity.class);
+                    finish();
+                    Toast.makeText(getApplicationContext(), "Token Expired Please Login Again...", Toast.LENGTH_SHORT).show();
+                    startActivity(_intent);
                 }
             }
 

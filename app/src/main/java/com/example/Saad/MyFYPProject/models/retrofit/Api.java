@@ -1,12 +1,17 @@
 package com.example.Saad.MyFYPProject.models.retrofit;
 
 import com.example.Saad.MyFYPProject.models.UniversalRes;
+import com.example.Saad.MyFYPProject.models.checkoutRes.CheckoutRes;
 import com.example.Saad.MyFYPProject.models.items.ItemsRes;
 import com.example.Saad.MyFYPProject.models.orders.OrdersRes;
 import com.example.Saad.MyFYPProject.models.user.UserRes;
 import com.example.Saad.MyFYPProject.neededitems.NeededItemsRes;
 
+import org.json.JSONObject;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Multipart;
@@ -67,6 +72,13 @@ public interface Api {
             @Field("description") String description,
             @Field("image") String image,
             @Field("token") String token
+            );
+
+
+
+    @POST("checkout")
+    Call<UniversalRes> proceedOrder(
+            @Body CheckoutRes body
             );
 
 }

@@ -18,6 +18,7 @@ public interface DaoAccess {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertItem (Item item);
 
+
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateItem(Item entity);
 
@@ -26,5 +27,8 @@ public interface DaoAccess {
 
     @Query ("SELECT * FROM item where id= :id")
    Item getItembyId(String id);
+
+    @Query ("delete FROM item")
+   void deleteAllItems();
 
 }

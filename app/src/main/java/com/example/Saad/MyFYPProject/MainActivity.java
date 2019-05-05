@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     //    AsyncDataClass _asyncClass;
     RecyclerView recyclerView;
-    //    ArrayList<ItemClass> ItemsList
+    //    ArrayList<ItemClass> itemsList
     ArrayList<Item> ItemsList;
     ItemsAdapter adapter = null;
 
@@ -130,13 +130,13 @@ public class MainActivity extends AppCompatActivity
 //            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                Intent intent = new Intent(MainActivity.this, ProductDetailsActivity.class);
 //
-//                intent.putExtra("id", String.valueOf(ItemsList.get(i).getId()));
+//                intent.putExtra("id", String.valueOf(itemsList.get(i).getId()));
 //
-//                intent.putExtra("name", ItemsList.get(i).getName());
+//                intent.putExtra("name", itemsList.get(i).getName());
 //
-//                intent.putExtra("price", ItemsList.get(i).getPrice());
+//                intent.putExtra("price", itemsList.get(i).getPrice());
 //
-//                intent.putExtra("description", ItemsList.get(i).getDescription());
+//                intent.putExtra("description", itemsList.get(i).getDescription());
 //                startActivity(intent);
 //            }
 //        });
@@ -485,19 +485,19 @@ public class MainActivity extends AppCompatActivity
 //            }
 //            final RealmResults<ItemClass> allItems = realmDB.where(ItemClass.class).findAll();
 //
-//            ItemClass userSchedule = allItems.where().equalTo("id", ItemsList.get(position).getId()).findFirst();
+//            ItemClass userSchedule = allItems.where().equalTo("id", itemsList.get(position).getId()).findFirst();
 //
 //            if (userSchedule != null) {
-//                userSchedule.setCount(ItemsList.get(position).getCount());
+//                userSchedule.setCount(itemsList.get(position).getCount());
 //                //  Log.e("Count1",userSchedule.getId() + " "+String.valueOf(userSchedule.getCount()));
 ////                realmDB.commitTransaction();
 //            } else {
 //////                ItemClass us = realmDB.createObject(.class);
-//////                us.setId(ItemsList.get(position).getId());
-//////                us.setImage(ItemsList.get(position).getImage());
-//////                us.setName(ItemsList.get(position).getName());
-//////                us.setCount(ItemsList.get(position).getCount());
-//////                us.setPrice(ItemsList.get(position).getPrice());
+//////                us.setId(itemsList.get(position).getId());
+//////                us.setImage(itemsList.get(position).getImage());
+//////                us.setName(itemsList.get(position).getName());
+//////                us.setCount(itemsList.get(position).getCount());
+//////                us.setPrice(itemsList.get(position).getPrice());
 //////                realmDB.commitTransaction();
 //            }
 //            adapter.notifyDataSetChanged();
@@ -513,25 +513,25 @@ public class MainActivity extends AppCompatActivity
         Integer position = (Integer) view.getTag();
         ItemsList.get(position).MinusQuantity();
 
-//        if (ItemsList.get(position).getCount() != 0) {
+//        if (itemsList.get(position).getCount() != 0) {
 //            try {
 //
 //                final RealmResults<ItemClass> allScheduele = realmDB.where(ItemClass.class).findAll();
 //
-//                ItemClass userSchedule = allScheduele.where().equalTo("id", ItemsList.get(position).getId()).findFirst();
+//                ItemClass userSchedule = allScheduele.where().equalTo("id", itemsList.get(position).getId()).findFirst();
 //
 //                if (userSchedule != null) {
-//                    ItemsList.get(position).MinusQuantity();
+//                    itemsList.get(position).MinusQuantity();
 //
 //                    if (!realmDB.isInTransaction()) {
 //                        realmDB.beginTransaction();
 //                    }
-//                    if (ItemsList.get(position).getCount() == 0) {
+//                    if (itemsList.get(position).getCount() == 0) {
 //                        //then remove the product from cart
 ////                        userSchedule.deleteFromRealm();
 //                    } else {
 //                        //increase quantity of that product
-//                        userSchedule.setCount(ItemsList.get(position).getCount());
+//                        userSchedule.setCount(itemsList.get(position).getCount());
 //                    }
 //                    realmDB.commitTransaction();
 //                    adapter.notifyDataSetChanged();
@@ -618,7 +618,7 @@ public class MainActivity extends AppCompatActivity
 //                alertDialog.show();
 //            } else if (!result.equals("")) {
 //
-//                ItemsList = new ArrayList<>();
+//                itemsList = new ArrayList<>();
 //                try {
 //                    JSONObject jsonobject = new JSONObject(result);
 //                    JSONArray JO = jsonobject.getJSONArray("Items");
@@ -644,12 +644,12 @@ public class MainActivity extends AppCompatActivity
 //                            Toast.makeText(context, "Error in Realm", Toast.LENGTH_SHORT).show();
 //                        }
 //
-////                        ItemsList.add(new ItemClass(Integer.valueOf(object.optString("id")), object.optString("name"),
+////                        itemsList.add(new ItemClass(Integer.valueOf(object.optString("id")), object.optString("name"),
 ////                                object.optString("price"), object.optString("description"), imagePath + object.optString("image"), object.optString("category"), count
 ////                        ));
 //                    }//end of for loop
 //
-////                    adapter = new ItemCustomAdapter(context, R.layout.productlayout, ItemsList);
+////                    adapter = new ItemCustomAdapter(context, R.layout.productlayout, itemsList);
 //                    recyclerView.setAdapter(adapter);
 //                } catch (Exception e) {
 //                    alertDialog.setTitle("Error");
